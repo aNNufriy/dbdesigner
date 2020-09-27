@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+<th:block layout:fragment="specificScripts">
+    <script src="/webjars/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.extend( true, $.fn.dataTable.defaults, {
+                "columnDefs": [
+                    { "width": "5%", "targets": 0},
+                    { "width": "30%", "targets": 1},
+                    { "width": "20%", "targets": 1},
+                    { "width": "20%", "targets": 1},
+                    { "width": "25%", "targets": 1},
+                ],
+                "autoWidth": false
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#listTable').DataTable();
+            $('#listTable').removeClass("hidden")
+        });
+    </script>
+</th:block>
+<th:block layout:fragment="specificStyles">
+    <link rel="stylesheet" href="/webjars/datatables/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/css/custom.css" />
+</th:block>
+<th:block layout:fragment="content">
+    <table id="listTable" class="table hover hidden">
+        <thead>
+        <tr style="font-size: 13px;">
+            <td>ID</td>
+            <td>Name</td>
+            <td>Purpose</td>
+            <td>Consumer</td>
+            <td>Project</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="node : ${nodes}">
+            <td th:text="${node.num}"/>
+            <td th:text="${node.name}"/>
+            <td th:text="${node.function}"/>
+            <td th:text="${node.consumer}"/>
+            <td th:text="${node.okr}"/>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+</html>

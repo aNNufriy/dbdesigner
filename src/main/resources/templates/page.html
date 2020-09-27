@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+
+<th:block layout:fragment="specificScripts">
+    <!-- put page-specific scripts here -->
+</th:block>
+<th:block layout:fragment="specificStyles">
+    <!-- put page-specific styles here -->
+</th:block>
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="jumbotron">
+            <h1 th:text="${page.title}"/>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <p th:text="${page.body}"/>
+        </div>
+    </div>
+</th:block>
+</html>

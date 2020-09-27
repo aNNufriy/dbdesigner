@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  postgresql:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=${COMPOSE_PROJECT_NAME}
+      - POSTGRES_USER=${COMPOSE_PROJECT_NAME}
+      - POSTGRES_DB=${COMPOSE_PROJECT_NAME}
+  java:
+    image: maven:3.6.3-jdk-8
+    ports:
+      - 8080:8080
+    volumes:
+      - ../:/app
+      - ./.m2:/root/.m2
+    command: bash -c "cd /app && mvn spring-boot:run"

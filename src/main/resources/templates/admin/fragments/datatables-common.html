@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org">
+<head>
+<script th:fragment="datatables-config">
+    $(document).ready(function() {
+        $.extend( true, $.fn.dataTable.defaults, {
+            "columnDefs": [
+                { "width": "20%", "targets": 0},
+                { "width": "60%", "targets": 1},
+                { "width": "10%", "targets": 1},
+                { "width": "10%", "targets": 2},
+            ],
+            "autoWidth": false
+        });
+    });
+</script>
+</head>
+<body>
+</body>
+</html>

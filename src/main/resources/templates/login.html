@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+
+<th:block layout:fragment="content">
+    <div class="row">
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" th:readonly="false" id="username" name="username"
+                       class="form-control" placeholder="username" autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" th:readonly="false" id="password" name="password"
+                       class="form-control" placeholder="password" autofocus="autofocus"/>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-bottom: 10px;">Submit</button>
+        </form>
+    </div>
+</th:block>
+</html>

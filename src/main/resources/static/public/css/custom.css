@@ -1,0 +1,7 @@
+.dataTable .btn {
+    width: 90pt;
+}
+label.markrequired:after {
+    content:"*";
+    color: red;
+}
